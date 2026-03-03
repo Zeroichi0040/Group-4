@@ -25,7 +25,7 @@
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
     h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
@@ -46,7 +46,7 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--blue-mid); border-bottom-color: var(--blue-mid); }
 
-    /* ── PAGE HEADER ── */
+    /* PAGE HEADER */
     .page-header {
       padding: 130px 6% 70px;
       background: linear-gradient(150deg, #e8f0fe 0%, #ffffff 60%, #dbeafe 100%);
@@ -64,24 +64,25 @@
     .page-header h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; color: var(--blue-deep); margin-bottom: 1rem; }
     .page-header p { font-size: 1.05rem; color: var(--text-muted); max-width: 480px; margin: 0 auto; line-height: 1.7; }
 
-    /* ── SECTION ── */
-    .output-section { padding: 80px 6%; max-width: 1000px; margin: 0 auto; }
+    /* SECTIONS */
+    .output-section { padding: 80px 6%; max-width: 1100px; margin: 0 auto; }
     .output-section.shaded { max-width: 100%; padding: 80px 6%; background: var(--off-white); }
-    .output-section.shaded .inner { max-width: 1000px; margin: 0 auto; }
+    .output-section.shaded .inner { max-width: 1100px; margin: 0 auto; }
 
     .sec-label { font-size: 0.78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: .5rem; }
     .sec-title { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; color: var(--blue-deep); margin-bottom: .8rem; }
     .sec-desc { font-size: 0.97rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; max-width: 560px; }
     .divider { width: 50px; height: 4px; background: var(--blue-mid); border-radius: 2px; margin: .8rem 0 1.6rem; }
+    .centered-header { text-align: center; margin-bottom: 2.5rem; }
+    .centered-header .sec-desc { margin-left: auto; margin-right: auto; }
+    .centered-header .divider { margin: .8rem auto 1.6rem; }
 
-    /* ── OUTPUT CARD ── */
+    /* OUTPUT CARD */
     .output-card {
       background: var(--white); border-radius: 18px; border: 1px solid var(--border);
       overflow: hidden; box-shadow: 0 2px 20px rgba(11,45,110,0.07);
-      margin-bottom: 2.5rem;
+      display: flex; flex-direction: column;
     }
-
-    /* Card header bar */
     .card-header {
       display: flex; align-items: center; gap: 14px;
       padding: 1.2rem 1.6rem; border-bottom: 1px solid var(--border);
@@ -94,12 +95,17 @@
     .file-icon.pdf  { background: #fde8e8; }
     .file-icon.docx { background: #e8f0fe; }
     .file-icon.pptx { background: #fff0e8; }
-    .card-meta { flex: 1; }
+    .card-meta { flex: 1; min-width: 0; }
     .card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--blue-deep); }
-    .card-filename { font-size: 0.78rem; color: var(--text-muted); font-family: 'Courier New', monospace; margin-top: 2px; }
+    .card-filename { font-size: 0.78rem; color: var(--text-muted); font-family: 'Courier New', monospace; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .card-body { padding: 1.3rem 1.6rem; flex: 1; }
+    .card-desc { font-size: 0.92rem; color: var(--text-mid); line-height: 1.65; }
 
-    /* Button group */
-    .card-actions { display: flex; gap: .7rem; flex-shrink: 0; }
+    /* Footer action buttons inside card */
+    .card-footer-actions {
+      display: flex; gap: .7rem; padding: 1rem 1.6rem;
+      border-top: 1px solid var(--border); background: var(--off-white);
+    }
     .btn-view, .btn-dl {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 8px 18px; border-radius: 8px;
@@ -112,62 +118,40 @@
     .btn-dl { background: var(--blue-mid); color: white; box-shadow: 0 4px 14px rgba(26,80,200,0.25); }
     .btn-dl:hover { background: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(11,45,110,0.28); }
 
-    /* Description inside card */
-    .card-body { padding: 1.3rem 1.6rem; }
-    .card-desc { font-size: 0.92rem; color: var(--text-mid); line-height: 1.65; }
-
-    /* ── PDF EMBED ── */
+    /* PDF EMBED */
     .pdf-embed-wrap {
       margin: 0 1.6rem 1.6rem;
       border-radius: 10px; overflow: hidden;
-      border: 1px solid var(--border);
-      background: #f1f5f9;
+      border: 1px solid var(--border); background: #f1f5f9;
     }
-    .pdf-embed-wrap iframe {
-      width: 100%; height: 520px; border: none; display: block;
-    }
+    .pdf-embed-wrap iframe { width: 100%; height: 520px; border: none; display: block; }
     .embed-note {
       font-size: 0.78rem; color: var(--text-muted); text-align: center;
-      padding: .6rem; background: var(--off-white);
-      border-top: 1px solid var(--border);
+      padding: .6rem; background: var(--off-white); border-top: 1px solid var(--border);
     }
 
-    /* ── GOOGLE VIEWER EMBED (Word / PPTX) ── */
-    .viewer-wrap {
-      margin: 0 1.6rem 1.6rem;
-      border-radius: 10px; overflow: hidden;
-      border: 1px solid var(--border);
-      background: #f1f5f9;
+    /* SIDE BY SIDE GRID */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      align-items: start;
     }
-    .viewer-wrap iframe { width: 100%; height: 520px; border: none; display: block; }
 
-    /* placeholder state before file is uploaded */
-    .embed-placeholder {
-      height: 220px; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 10px;
-      background: linear-gradient(135deg, var(--blue-pale), var(--blue-soft));
-      border-radius: 10px; margin: 0 1.6rem 1.6rem;
-      border: 2px dashed rgba(26,80,200,0.25);
-    }
-    .embed-placeholder .ph-icon { font-size: 2.4rem; }
-    .embed-placeholder p { font-size: 0.85rem; color: var(--blue-mid); font-weight: 500; text-align: center; max-width: 320px; line-height: 1.5; }
-    .embed-placeholder code { font-size: 0.78rem; background: rgba(26,80,200,0.1); padding: 2px 7px; border-radius: 4px; }
-
-    /* ── QUOTE BAND ── */
+    /* QUOTE BAND */
     .quote-band { background: var(--blue-deep); color: white; padding: 70px 6%; text-align: center; }
     .quote-band blockquote { font-family: 'Syne', sans-serif; font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 700; max-width: 720px; margin: 0 auto 1rem; line-height: 1.4; opacity: 0.95; }
     .quote-band cite { font-size: 0.9rem; opacity: 0.6; font-style: normal; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer { background: var(--blue-deep); color: rgba(255,255,255,0.5); text-align: center; padding: 28px 6%; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08); }
     footer strong { color: rgba(255,255,255,0.85); }
     footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
     footer a:hover { color: white; }
 
-    @media (max-width: 680px) {
-      .card-header { flex-wrap: wrap; }
-      .card-actions { width: 100%; justify-content: flex-start; }
-      .pdf-embed-wrap iframe, .viewer-wrap iframe { height: 340px; }
+    @media (max-width: 720px) {
+      .docs-grid { grid-template-columns: 1fr; }
+      .pdf-embed-wrap iframe { height: 340px; }
     }
   </style>
 </head>
@@ -194,9 +178,7 @@
     <p>All our work in one place — infographics, written essay, and slide presentation.</p>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       1. INFOGRAPHICS (PDF — embedded viewer)
-  ══════════════════════════════════════════ -->
+  <!-- 1. INFOGRAPHICS (PDF) -->
   <div class="output-section shaded" id="infographics">
     <div class="inner">
       <p class="sec-label">Visual Content</p>
@@ -209,97 +191,80 @@
           <div class="file-icon pdf">📄</div>
           <div class="card-meta">
             <div class="card-title">STEM Strand Infographic</div>
-            <!-- UPDATE: rename to your actual file -->
             <div class="card-filename">assets/INFOGRAPHIC.pdf</div>
           </div>
-          <div class="card-actions">
-            <!-- UPDATE: change href to your actual file path -->
+          <div style="flex-shrink:0;">
             <a href="assets/INFOGRAPHIC.pdf" download class="btn-dl">⬇ Download</a>
           </div>
         </div>
         <div class="card-body">
           <p class="card-desc">Our infographic highlights the core subjects of STEM, available career paths, and the benefits of taking this strand in Senior High School.</p>
         </div>
-
-        <!-- PDF embedded inline — just update the src path below -->
-        <!-- HOW TO USE:
-             1. Put your PDF in the assets/ folder
-             2. Replace INFOGRAPHIC.pdf with your actual filename in BOTH places above and below
-        -->
         <div class="pdf-embed-wrap">
-          <iframe
-            src="assets/INFOGRAPHIC.pdf"
-            title="STEM Infographic PDF">
-          </iframe>
+          <iframe src="assets/INFOGRAPHIC.pdf" title="STEM Infographic PDF"></iframe>
           <div class="embed-note">Can't see the PDF? <a href="assets/INFOGRAPHIC.pdf" target="_blank" style="color:var(--blue-mid);">Open in new tab →</a></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       2. DESCRIPTIVE ESSAY (Word file)
-  ══════════════════════════════════════════ -->
-  <div class="output-section" id="essay">
-    <p class="sec-label">Written Work</p>
-    <h2 class="sec-title">Descriptive Essay</h2>
-    <div class="divider"></div>
-    <p class="sec-desc">A descriptive essay about our group — how we collaborated, each member's contribution, and how we produced all our outputs together.</p>
-
-    <div class="output-card">
-      <div class="card-header">
-        <div class="file-icon docx">📝</div>
-        <div class="card-meta">
-          <div class="card-title">Group Descriptive Essay</div>
-          <div class="card-filename">assets/GROUPNAME_DESCRIPTIVE_ESSAY.docx</div>
-        </div>
-        <div class="card-actions">
-          <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/Zeroichi0040/Group-4-Website/main/assets/ESSAY.docx"
-             target="_blank" class="btn-view">👁 View</a>
-          <a href="assets/GROUPNAME_DESCRIPTIVE_ESSAY.docx" download class="btn-dl">⬇ Download</a>
-        </div>
-      </div>
-      <div class="card-body">
-        <p class="card-desc">
-          This essay describes how our group formed, divided responsibilities, overcame challenges,
-          and ultimately came together to complete this Empowerment Technology project.
-          Click <strong>View</strong> to read it in your browser, or <strong>Download</strong> to save a copy.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
-       3. PRESENTATION (PPTX)
-  ══════════════════════════════════════════ -->
-  <div class="output-section shaded" id="presentation">
-    <div class="inner">
-      <p class="sec-label">Slide Deck</p>
-      <h2 class="sec-title">Group Report Presentation</h2>
+  <!-- 2 & 3. ESSAY + PRESENTATION (side by side) -->
+  <div class="output-section" id="docs">
+    <div class="centered-header">
+      <p class="sec-label">Documents</p>
+      <h2 class="sec-title">Written Work &amp; Presentation</h2>
       <div class="divider"></div>
-      <p class="sec-desc">Our PowerPoint presentation covering the key topics of our STEM strand report, designed and assembled by the team.</p>
+      <p class="sec-desc">Our descriptive essay and slide deck — view in the browser or download a copy.</p>
+    </div>
 
-      <div class="output-card">
+    <div class="docs-grid">
+
+      <!-- ESSAY -->
+      <div class="output-card" id="essay">
         <div class="card-header">
-          <div class="file-icon pptx">📊</div>
+          <div class="file-icon docx">📝</div>
           <div class="card-meta">
-            <div class="card-title">STEM Report Slides</div>
-            <div class="card-filename">assets/REPORT.pptx</div>
-          </div>
-          <div class="card-actions">
-            <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/Zeroichi0040/Group-4-Website/main/assets/REPORT.pptx"
-               target="_blank" class="btn-view">👁 View</a>
-            <a href="assets/REPORT.pptx" download class="btn-dl">⬇ Download</a>
+            <div class="card-title">Descriptive Essay</div>
+            <div class="card-filename">assets/DESCRIPTIVE_ESSAY.docx</div>
           </div>
         </div>
         <div class="card-body">
           <p class="card-desc">
-            Slides covering our group's report on the STEM strand — including subject breakdowns,
-            career opportunities, and our team's collaborative process.
-            Click <strong>View</strong> to open in browser, or <strong>Download</strong> to get the .pptx file.
+            How our group formed, divided responsibilities, overcame challenges,
+            and came together to complete this Empowerment Technology project.
           </p>
         </div>
+        <div class="card-footer-actions">
+          <!-- Replace [USERNAME] and [REPO] with your GitHub username and repo name -->
+          <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/[USERNAME]/[REPO]/main/assets/DESCRIPTIVE_ESSAY.docx"
+             target="_blank" class="btn-view">👁 View</a>
+          <a href="assets/DESCRIPTIVE_ESSAY.docx" download class="btn-dl">⬇ Download</a>
+        </div>
       </div>
+
+      <!-- PPTX -->
+      <div class="output-card" id="presentation">
+        <div class="card-header">
+          <div class="file-icon pptx">📊</div>
+          <div class="card-meta">
+            <div class="card-title">Report Presentation</div>
+            <div class="card-filename">assets/REPORT.pptx</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">
+            Our slide deck covering the STEM strand report — subject breakdowns,
+            career opportunities, and our team's collaborative process.
+          </p>
+        </div>
+        <div class="card-footer-actions">
+          <!-- Replace [USERNAME] and [REPO] with your GitHub username and repo name -->
+          <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/[USERNAME]/[REPO]/main/assets/REPORT.pptx"
+             target="_blank" class="btn-view">👁 View</a>
+          <a href="assets/REPORT.pptx" download class="btn-dl">⬇ Download</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
